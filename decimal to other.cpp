@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-string DecimalToBOD(int num,int base)
+string DecimalToBOF(int num,int base)
 {
    string result="";
    string bases="0123456789ABCDEF";
@@ -16,6 +16,6 @@ int main()
 {
    int  num,base;
    cin>>num>>base;
-   cout<<DecimalToBOD(num,base)<<endl;	
+   cout<<DecimalToBOF(num,base)<<endl;	
 	return 0;
 }

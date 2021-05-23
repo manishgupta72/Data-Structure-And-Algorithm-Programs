@@ -33,25 +33,6 @@ int DecimalToBinary(int n)
 	return ans;
 }
 
-int DecimalToOctal(int n)
-{
-	int ans=0;
-	int x=1;
-	while(x<=n)
-	{
-		x*=8;
-	}
-	while(x>0)
-	{
-		int lastdigit=n/x;
-		 n-=lastdigit*x;
-	   x/=8;
-	   ans=ans*10+lastdigit;
-	  	
-	}
-	return ans;
-}
-
 int OctalToDecimal(int n)
 {
 	int ans=0;
@@ -66,6 +47,23 @@ int OctalToDecimal(int n)
 	return ans;
 }
 
+int DecimalToOctol(int n)
+{
+	int ans=0,x=1;
+	while(x<=n)
+	{
+		x*=8;
+	}
+	x/=8;
+	while(x>0)
+	{
+		int lastdigit=n/x;
+		n-=lastdigit*x;
+		x/=8;
+		ans=ans*10+lastdigit;
+	}
+	return ans;
+}
 int HexaToDecimal(string n)
 {
 	int ans=0;
@@ -86,6 +84,31 @@ int HexaToDecimal(string n)
 	return ans;
 }
 
+string DecimalToHexa(int n)
+{
+	int x=1;
+	string ans="";
+	while(x<=n)
+	{
+		x*=16;
+	}
+	x/=16;
+	while(x>0)
+	{
+		int lastdigit=n/x;
+		n-=lastdigit*x;
+		x/=16;
+		if(lastdigit<=9){
+		ans=ans+to_string(lastdigit);
+	    }
+	    else
+	    {
+	    	char c='A' +lastdigit-10;
+	    	ans.push_back(c);
+	    }
+	}
+	return ans;
+}
 string DecimalToBOD(int num,int base)
 {
    string result="";
@@ -102,7 +125,7 @@ int main()
 {
 	int  n,b;
 	cin>>n;
-	cout<<DecimalToOctal(n);
+	cout<<DecimalToHexa(n);
 
 	return 0;
 }
